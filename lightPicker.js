@@ -130,21 +130,39 @@ let dialogEditor = new Dialog({
         crusadingShortsword: {
             label: `Crusading Shortsword`,
             callback: () => {
-                tokenUpdate({"dimLight": 30, "brightLight": 15, "lightAngle": 360, "lightColor": "#6d9cee", "lightAnimation": {"type": "none"}});
+                tokenUpdate({
+                    "dimLight": 30,
+                    "brightLight": 15,
+                    "lightAngle": 360,
+                    "lightColor": "#6d9cee",
+                    "lightAnimation": {"type": "none"}
+                });
                 dialogEditor.render(true);
             }
         },
         frostbrand: {
             label: `Frostbrand`,
             callback: () => {
-                tokenUpdate({"dimLight": 20, "brightLight": 10, "lightAngle": 360, "lightColor": "#6d9cee", "lightAnimation": {"type": "none"}});
+                tokenUpdate({
+                    "dimLight": 20,
+                    "brightLight": 10,
+                    "lightAngle": 360,
+                    "lightColor": "#6d9cee",
+                    "lightAnimation": {"type": "none"}
+                });
                 dialogEditor.render(true);
             }
         },
         thighbone: {
             label: `Thighbone`,
             callback: () => {
-                tokenUpdate({"dimLight": 40, "brightLight": 20, "lightAngle": 360, "lightColor": "#eed96d", "lightAnimation": {"type": "none"}});
+                tokenUpdate({
+                    "dimLight": 40,
+                    "brightLight": 20,
+                    "lightAngle": 360,
+                    "lightColor": "#eed96d",
+                    "lightAnimation": {"type": "none"}
+                });
                 dialogEditor.render(true);
             }
         },
