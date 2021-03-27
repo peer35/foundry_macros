@@ -28,49 +28,91 @@ let dialogEditor = new Dialog({
         faerie: {
             label: `Faerie fire`,
             callback: () => {
-                tokenUpdate({"dimLight": 10, "brightLight": 0, "lightAngle": 360,  "lightAnimation": ghostlyAnimation, "lightColor": "#ff00ff", "lightAlpha": 0.6});
+                tokenUpdate({
+                    "dimLight": 10,
+                    "brightLight": 0,
+                    "lightAngle": 360,
+                    "lightAnimation": ghostlyAnimation,
+                    "lightColor": "#ff00ff",
+                    "lightAlpha": 0.6
+                });
                 dialogEditor.render(true);
             }
         },
         light: {
             label: `Light cantrip`,
             callback: () => {
-                tokenUpdate({"dimLight": 40, "brightLight": 20, "lightAngle": 360,  "lightAnimation": {"type": "none"}});
+                tokenUpdate({"dimLight": 40, "brightLight": 20, "lightAngle": 360, "lightAnimation": {"type": "none"}});
                 dialogEditor.render(true);
             }
         },
         sunlight10: {
             label: `Sunlight 10ft`,
             callback: () => {
-                tokenUpdate({"dimLight": 20, "brightLight": 10, "lightAngle": 360, "lightAnimation": sunAnimation, "lightColor": "#ffff80", "lightAlpha": 0.15});
+                tokenUpdate({
+                    "dimLight": 20,
+                    "brightLight": 10,
+                    "lightAngle": 360,
+                    "lightAnimation": sunAnimation,
+                    "lightColor": "#ffff80",
+                    "lightAlpha": 0.15
+                });
                 dialogEditor.render(true);
             }
         },
         sunlight15: {
             label: `Sunlight 15ft`,
             callback: () => {
-                tokenUpdate({"dimLight": 30, "brightLight": 15, "lightAngle": 360, "lightAnimation": sunAnimation, "lightColor": "#ffff80", "lightAlpha": 0.15});
+                tokenUpdate({
+                    "dimLight": 30,
+                    "brightLight": 15,
+                    "lightAngle": 360,
+                    "lightAnimation": sunAnimation,
+                    "lightColor": "#ffff80",
+                    "lightAlpha": 0.15
+                });
                 dialogEditor.render(true);
             }
         },
         sunlight20: {
             label: `Sunlight 20ft`,
             callback: () => {
-                tokenUpdate({"dimLight": 40, "brightLight": 20, "lightAngle": 360, "lightAnimation": sunAnimation, "lightColor": "#ffff80", "lightAlpha": 0.15});
+                tokenUpdate({
+                    "dimLight": 40,
+                    "brightLight": 20,
+                    "lightAngle": 360,
+                    "lightAnimation": sunAnimation,
+                    "lightColor": "#ffff80",
+                    "lightAlpha": 0.15
+                });
                 dialogEditor.render(true);
             }
         },
         sunlight25: {
             label: `Sunlight 25ft`,
             callback: () => {
-                tokenUpdate({"dimLight": 50, "brightLight": 25, "lightAngle": 360, "lightAnimation": sunAnimation, "lightColor": "#ffff80", "lightAlpha": 0.15});
+                tokenUpdate({
+                    "dimLight": 50,
+                    "brightLight": 25,
+                    "lightAngle": 360,
+                    "lightAnimation": sunAnimation,
+                    "lightColor": "#ffff80",
+                    "lightAlpha": 0.15
+                });
                 dialogEditor.render(true);
             }
         },
         sunlight30: {
             label: `Sunlight 30ft`,
             callback: () => {
-                tokenUpdate({"dimLight": 60, "brightLight": 30, "lightAngle": 360, "lightAnimation": sunAnimation, "lightColor": "#ffff80", "lightAlpha": 0.15});
+                tokenUpdate({
+                    "dimLight": 60,
+                    "brightLight": 30,
+                    "lightAngle": 360,
+                    "lightAnimation": sunAnimation,
+                    "lightColor": "#ffff80",
+                    "lightAlpha": 0.15
+                });
                 dialogEditor.render(true);
             }
         },
@@ -115,7 +157,8 @@ let dialogEditor = new Dialog({
         },
     },
     default: "close",
-    close: () => {}
+    close: () => {
+    }
 });
 
 dialogEditor.render(true)
