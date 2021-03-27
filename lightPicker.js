@@ -2,12 +2,11 @@ function tokenUpdate(data) {
     canvas.tokens.controlled.map(token => token.update(data));
 }
 
-let torchAnimation = {"type": "torch", "speed": 1, "intensity": 1};
-let sunAnimation = {"type": "sunburst", "speed": 1, "intensity": 1};
-let ghostlyAnimation = {"type": "ghost", "speed": 1, "intensity": 5}
-
-function sunLight(radius) {
-    let data = {
+const torchAnimation = {"type": "torch", "speed": 1, "intensity": 1};
+const sunAnimation = {"type": "sunburst", "speed": 1, "intensity": 1};
+const ghostlyAnimation = {"type": "ghost", "speed": 1, "intensity": 5}
+const sunLight = (radius) => {
+    return {
         "dimLight": 2 * radius,
         "brightLight": radius,
         "lightAngle": 360,
@@ -15,7 +14,14 @@ function sunLight(radius) {
         "lightColor": "#ffff80",
         "lightAlpha": 0.15
     }
-    return data;
+}
+const flameLight = (dim, bright) => {
+    return {
+        "dimLight": dim,
+        "brightLight": bright,
+        "lightAngle": 360,
+        "lightAnimation": torchAnimation
+    }
 }
 
 let dialogEditor = new Dialog({
@@ -32,7 +38,7 @@ let dialogEditor = new Dialog({
         torch: {
             label: `Torch`,
             callback: () => {
-                tokenUpdate({"dimLight": 40, "brightLight": 20, "lightAngle": 360, "lightAnimation": torchAnimation});
+                tokenUpdate(flameLight(40, 20));
                 dialogEditor.render(true);
             }
         },
@@ -95,35 +101,43 @@ let dialogEditor = new Dialog({
         lamp: {
             label: `Lamp`,
             callback: () => {
-                tokenUpdate({"dimLight": 45, "brightLight": 15, "lightAngle": 360, "lightAnimation": torchAnimation});
+                tokenUpdate(flameLight(45, 15));
                 dialogEditor.render(true);
             }
         },
         bullseye: {
             label: `Bullseye Lantern`,
             callback: () => {
-                tokenUpdate({"dimLight": 120, "brightLight": 60, "lightAngle": 45, "lightAnimation": torchAnimation});
+                tokenUpdate({
+                    "dimLight": 120,
+                    "brightLight": 60,
+                    "lightAngle": 45,
+                    "lightAnimation": torchAnimation});
                 dialogEditor.render(true);
             }
         },
         hoodedOpen: {
             label: `Hooded Lantern (Open)`,
             callback: () => {
-                tokenUpdate({"dimLight": 60, "brightLight": 30, "lightAngle": 360, "lightAnimation": torchAnimation});
+                tokenUpdate(flameLight(60, 30));
                 dialogEditor.render(true);
             }
         },
         hoodedClosed: {
             label: `Hooded Lantern (Closed)`,
             callback: () => {
-                tokenUpdate({"dimLight": 5, "brightLight": 0, "lightAngle": 360, "lightAnimation": torchAnimation});
+                tokenUpdate(flameLight(5, 0));
                 dialogEditor.render(true);
             }
         },
         darkness: {
             label: `Darkness spell`,
             callback: () => {
-                tokenUpdate({"dimLight": 0, "brightLight": -15, "lightAngle": 360, "lightAnimation": {"type": "none"}});
+                tokenUpdate({
+                    "dimLight": 0,
+                    "brightLight": -15,
+                    "lightAngle": 360,
+                    "lightAnimation": {"type": "none"}});
                 dialogEditor.render(true);
             }
         },
