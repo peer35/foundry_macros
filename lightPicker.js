@@ -6,6 +6,17 @@ let torchAnimation = {"type": "torch", "speed": 1, "intensity": 1};
 let sunAnimation = {"type": "sunburst", "speed": 1, "intensity": 1};
 let ghostlyAnimation = {"type": "ghost", "speed": 1, "intensity": 5}
 
+function sunLight(radius) {
+    let data = {
+        "dimLight": 2 * radius,
+        "brightLight": radius,
+        "lightAngle": 360,
+        "lightAnimation": sunAnimation,
+        "lightColor": "#ffff80",
+        "lightAlpha": 0.15
+    }
+    return data;
+}
 
 let dialogEditor = new Dialog({
     title: `Token Light Picker`,
@@ -49,70 +60,35 @@ let dialogEditor = new Dialog({
         sunlight10: {
             label: `Sunlight 10ft`,
             callback: () => {
-                tokenUpdate({
-                    "dimLight": 20,
-                    "brightLight": 10,
-                    "lightAngle": 360,
-                    "lightAnimation": sunAnimation,
-                    "lightColor": "#ffff80",
-                    "lightAlpha": 0.15
-                });
+                tokenUpdate(sunLight(10));
                 dialogEditor.render(true);
             }
         },
         sunlight15: {
             label: `Sunlight 15ft`,
             callback: () => {
-                tokenUpdate({
-                    "dimLight": 30,
-                    "brightLight": 15,
-                    "lightAngle": 360,
-                    "lightAnimation": sunAnimation,
-                    "lightColor": "#ffff80",
-                    "lightAlpha": 0.15
-                });
+                tokenUpdate(sunLight(15));
                 dialogEditor.render(true);
             }
         },
         sunlight20: {
             label: `Sunlight 20ft`,
             callback: () => {
-                tokenUpdate({
-                    "dimLight": 40,
-                    "brightLight": 20,
-                    "lightAngle": 360,
-                    "lightAnimation": sunAnimation,
-                    "lightColor": "#ffff80",
-                    "lightAlpha": 0.15
-                });
+                tokenUpdate(sunLight(20));
                 dialogEditor.render(true);
             }
         },
         sunlight25: {
             label: `Sunlight 25ft`,
             callback: () => {
-                tokenUpdate({
-                    "dimLight": 50,
-                    "brightLight": 25,
-                    "lightAngle": 360,
-                    "lightAnimation": sunAnimation,
-                    "lightColor": "#ffff80",
-                    "lightAlpha": 0.15
-                });
+                tokenUpdate(sunLight(25));
                 dialogEditor.render(true);
             }
         },
         sunlight30: {
             label: `Sunlight 30ft`,
             callback: () => {
-                tokenUpdate({
-                    "dimLight": 60,
-                    "brightLight": 30,
-                    "lightAngle": 360,
-                    "lightAnimation": sunAnimation,
-                    "lightColor": "#ffff80",
-                    "lightAlpha": 0.15
-                });
+                tokenUpdate(sunLight(30));
                 dialogEditor.render(true);
             }
         },
@@ -148,6 +124,27 @@ let dialogEditor = new Dialog({
             label: `Darkness spell`,
             callback: () => {
                 tokenUpdate({"dimLight": 0, "brightLight": -15, "lightAngle": 360, "lightAnimation": {"type": "none"}});
+                dialogEditor.render(true);
+            }
+        },
+        crusadingShortsword: {
+            label: `Crusading Shortsword`,
+            callback: () => {
+                tokenUpdate({"dimLight": 30, "brightLight": 15, "lightAngle": 360, "lightColor": "#6d9cee", "lightAnimation": {"type": "none"}});
+                dialogEditor.render(true);
+            }
+        },
+        frostbrand: {
+            label: `Frostbrand`,
+            callback: () => {
+                tokenUpdate({"dimLight": 20, "brightLight": 10, "lightAngle": 360, "lightColor": "#6d9cee", "lightAnimation": {"type": "none"}});
+                dialogEditor.render(true);
+            }
+        },
+        thighbone: {
+            label: `Thighbone`,
+            callback: () => {
+                tokenUpdate({"dimLight": 40, "brightLight": 20, "lightAngle": 360, "lightColor": "#eed96d", "lightAnimation": {"type": "none"}});
                 dialogEditor.render(true);
             }
         },
