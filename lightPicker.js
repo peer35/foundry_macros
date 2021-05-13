@@ -61,7 +61,14 @@ let dialogEditor = new Dialog({
         light: {
             label: `Light cantrip`,
             callback: () => {
-                tokenUpdate({"dimLight": 40, "brightLight": 20, "lightAngle": 360, "lightAnimation": {"type": "none"}});
+                tokenUpdate({
+                    "dimLight": 40,
+                    "brightLight": 20,
+                    "lightAngle": 360,
+                    "lightAnimation": {"type": "none"},
+                    "lightColor": "#dfffff",
+                    "lightAlpha": 0.2
+                });
                 dialogEditor.render(true);
             }
         },
