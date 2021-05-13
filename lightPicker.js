@@ -2,7 +2,7 @@ function tokenUpdate(data) {
     canvas.tokens.controlled.map(token => token.update(data));
 }
 
-const torchAnimation = {"type": "torch", "speed": 1, "intensity": 1};
+const torchAnimation = {"type": "torch", "speed": 1, "intensity": 5};
 const sunAnimation = {"type": "sunburst", "speed": 1, "intensity": 1};
 const ghostlyAnimation = {"type": "ghost", "speed": 1, "intensity": 5}
 const sunLight = (radius) => {
@@ -11,8 +11,8 @@ const sunLight = (radius) => {
         "brightLight": radius,
         "lightAngle": 360,
         "lightAnimation": sunAnimation,
-        "lightColor": "#ffff80",
-        "lightAlpha": 0.15
+        "lightColor": "#fbff80",
+        "lightAlpha": 0.2
     }
 }
 const flameLight = (dim, bright) => {
@@ -20,7 +20,9 @@ const flameLight = (dim, bright) => {
         "dimLight": dim,
         "brightLight": bright,
         "lightAngle": 360,
-        "lightAnimation": torchAnimation
+        "lightAnimation": torchAnimation,
+        "lightColor": "#ffeb68",
+        "lightAlpha": 0.3
     }
 }
 
@@ -112,7 +114,10 @@ let dialogEditor = new Dialog({
                     "dimLight": 120,
                     "brightLight": 60,
                     "lightAngle": 45,
-                    "lightAnimation": torchAnimation});
+                    "lightAnimation": torchAnimation,
+                    "lightColor": "#ffeb68",
+                    "lightAlpha": 0.4
+                });
                 dialogEditor.render(true);
             }
         },
@@ -148,8 +153,9 @@ let dialogEditor = new Dialog({
                     "dimLight": 30,
                     "brightLight": 15,
                     "lightAngle": 360,
-                    "lightColor": "#6d9cee",
-                    "lightAnimation": {"type": "none"}
+                    "lightAnimation": {"type": "none"},
+                    "lightColor": "#97b7ee",
+                    "lightAlpha": 0.5
                 });
                 dialogEditor.render(true);
             }
@@ -161,8 +167,9 @@ let dialogEditor = new Dialog({
                     "dimLight": 20,
                     "brightLight": 10,
                     "lightAngle": 360,
-                    "lightColor": "#6d9cee",
-                    "lightAnimation": {"type": "none"}
+                    "lightAnimation": {"type": "none"},
+                    "lightColor": "#1351df",
+                    "lightAlpha": 0.5
                 });
                 dialogEditor.render(true);
             }
@@ -174,8 +181,9 @@ let dialogEditor = new Dialog({
                     "dimLight": 40,
                     "brightLight": 20,
                     "lightAngle": 360,
-                    "lightColor": "#eed96d",
-                    "lightAnimation": {"type": "none"}
+                    "lightAnimation": {"type": "none"},
+                    "lightColor": "#22a006",
+                    "lightAlpha": 0.2
                 });
                 dialogEditor.render(true);
             }
