@@ -33,7 +33,7 @@ let dialogEditor = new Dialog({
         none: {
             label: `None`,
             callback: () => {
-                tokenUpdate({"dimLight": null, "brightLight": null, "lightAngle": 360,});
+                tokenUpdate({"dimLight": 0, "brightLight": 0, "lightAngle": 360,});
                 dialogEditor.render(true);
             }
         },
