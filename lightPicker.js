@@ -36,7 +36,12 @@ const flameLight = (dim, bright) => {
 
 let dialogEditor = new Dialog({
     title: `Token Light Picker`,
-    content: `Pick the light source the selected token is holding.`,
+    content: `Pick the light source the selected token is holding.
+    <style>
+    #lightPicker .dialog-buttons {
+        flex-direction: column;
+    }
+    </style>`,
     buttons: {
         none: {
             label: `None`,
@@ -45,10 +50,57 @@ let dialogEditor = new Dialog({
                 dialogEditor.render(true);
             }
         },
-        torch: {
-            label: `Torch`,
+        bullseye: {
+            label: `Bullseye Lantern`,
             callback: () => {
-                tokenUpdate(flameLight(40, 20));
+                tokenUpdate({
+                    "dimLight": 120,
+                    "brightLight": 60,
+                    "lightAngle": 45,
+                    "lightAnimation": torchAnimation,
+                    "lightColor": "#ffeb68",
+                    "lightAlpha": 0.3
+                });
+                dialogEditor.render(true);
+            }
+        },
+        crusadingShortsword: {
+            label: `Crusading Shortsword`,
+            callback: () => {
+                tokenUpdate({
+                    "dimLight": 30,
+                    "brightLight": 15,
+                    "lightAngle": 360,
+                    "lightAnimation": {"type": "none"},
+                    "lightColor": "#065ef8",
+                    "lightAlpha": 0.2
+                });
+                dialogEditor.render(true);
+            }
+        },
+        darkness: {
+            label: `Darkness spell`,
+            callback: () => {
+                tokenUpdate({
+                    "dimLight": 0,
+                    "brightLight": -15,
+                    "lightAngle": 360,
+                    "lightAnimation": {"type": "none"}
+                });
+                dialogEditor.render(true);
+            }
+        },
+        dayLight: {
+            label: `Daylight spell`,
+            callback: () => {
+                tokenUpdate({
+                    "dimLight": 120,
+                    "brightLight": 60,
+                    "lightAngle": 360,
+                    "lightAnimation": {"type": "none"},
+                    "lightColor": "#dfffff",
+                    "lightAlpha": 0.2
+                });
                 dialogEditor.render(true);
             }
         },
@@ -63,6 +115,41 @@ let dialogEditor = new Dialog({
                     "lightColor": "#ff00ff",
                     "lightAlpha": 0.4
                 });
+                dialogEditor.render(true);
+            }
+        },
+        frostbrand: {
+            label: `Frostbrand`,
+            callback: () => {
+                tokenUpdate({
+                    "dimLight": 20,
+                    "brightLight": 10,
+                    "lightAngle": 360,
+                    "lightAnimation": {"type": "none"},
+                    "lightColor": "#1351df",
+                    "lightAlpha": 0.2
+                });
+                dialogEditor.render(true);
+            }
+        },
+        hoodedOpen: {
+            label: `Hooded Lantern (Open)`,
+            callback: () => {
+                tokenUpdate(flameLight(60, 30));
+                dialogEditor.render(true);
+            }
+        },
+        hoodedClosed: {
+            label: `Hooded Lantern (Closed)`,
+            callback: () => {
+                tokenUpdate(flameLight(5, 0));
+                dialogEditor.render(true);
+            }
+        },
+        lamp: {
+            label: `Lamp`,
+            callback: () => {
+                tokenUpdate(flameLight(45, 15));
                 dialogEditor.render(true);
             }
         },
@@ -115,80 +202,6 @@ let dialogEditor = new Dialog({
                 dialogEditor.render(true);
             }
         },
-        lamp: {
-            label: `Lamp`,
-            callback: () => {
-                tokenUpdate(flameLight(45, 15));
-                dialogEditor.render(true);
-            }
-        },
-        bullseye: {
-            label: `Bullseye Lantern`,
-            callback: () => {
-                tokenUpdate({
-                    "dimLight": 120,
-                    "brightLight": 60,
-                    "lightAngle": 45,
-                    "lightAnimation": torchAnimation,
-                    "lightColor": "#ffeb68",
-                    "lightAlpha": 0.3
-                });
-                dialogEditor.render(true);
-            }
-        },
-        hoodedOpen: {
-            label: `Hooded Lantern (Open)`,
-            callback: () => {
-                tokenUpdate(flameLight(60, 30));
-                dialogEditor.render(true);
-            }
-        },
-        hoodedClosed: {
-            label: `Hooded Lantern (Closed)`,
-            callback: () => {
-                tokenUpdate(flameLight(5, 0));
-                dialogEditor.render(true);
-            }
-        },
-        darkness: {
-            label: `Darkness spell`,
-            callback: () => {
-                tokenUpdate({
-                    "dimLight": 0,
-                    "brightLight": -15,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"}});
-                dialogEditor.render(true);
-            }
-        },
-        crusadingShortsword: {
-            label: `Crusading Shortsword`,
-            callback: () => {
-                tokenUpdate({
-                    "dimLight": 30,
-                    "brightLight": 15,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"},
-                    "lightColor": "#065ef8",
-                    "lightAlpha": 0.2
-                });
-                dialogEditor.render(true);
-            }
-        },
-        frostbrand: {
-            label: `Frostbrand`,
-            callback: () => {
-                tokenUpdate({
-                    "dimLight": 20,
-                    "brightLight": 10,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"},
-                    "lightColor": "#1351df",
-                    "lightAlpha": 0.2
-                });
-                dialogEditor.render(true);
-            }
-        },
         thighbone: {
             label: `Thighbone`,
             callback: () => {
@@ -203,6 +216,13 @@ let dialogEditor = new Dialog({
                 dialogEditor.render(true);
             }
         },
+        torch: {
+            label: `Torch`,
+            callback: () => {
+                tokenUpdate(flameLight(40, 20));
+                dialogEditor.render(true);
+            }
+        },
         close: {
             icon: "<i class='fas fa-tick'></i>",
             label: `Close`
@@ -211,6 +231,6 @@ let dialogEditor = new Dialog({
     default: "close",
     close: () => {
     }
-});
+}, {id: "lightPicker"});
 
 dialogEditor.render(true)
