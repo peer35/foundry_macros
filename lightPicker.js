@@ -2,6 +2,14 @@ function tokenUpdate(data) {
     canvas.tokens.controlled.map(token => token.update(data));
 }
 
+/*
+lightAlpha - color intensity:
+0.3 - 0.55
+0.2 - 0.45
+0.1 - 0.3
+0.05 - 0.2
+ */
+
 const torchAnimation = {"type": "torch", "speed": 1, "intensity": 5};
 const sunAnimation = {"type": "sunburst", "speed": 1, "intensity": 1};
 const ghostlyAnimation = {"type": "ghost", "speed": 1, "intensity": 5}
@@ -12,7 +20,7 @@ const sunLight = (radius) => {
         "lightAngle": 360,
         "lightAnimation": sunAnimation,
         "lightColor": "#fbff80",
-        "lightAlpha": 0.2
+        "lightAlpha": 0.15,
     }
 }
 const flameLight = (dim, bright) => {
@@ -22,7 +30,7 @@ const flameLight = (dim, bright) => {
         "lightAngle": 360,
         "lightAnimation": torchAnimation,
         "lightColor": "#ffeb68",
-        "lightAlpha": 0.3
+        "lightAlpha": 0.15
     }
 }
 
@@ -53,7 +61,7 @@ let dialogEditor = new Dialog({
                     "lightAngle": 360,
                     "lightAnimation": ghostlyAnimation,
                     "lightColor": "#ff00ff",
-                    "lightAlpha": 0.6
+                    "lightAlpha": 0.4
                 });
                 dialogEditor.render(true);
             }
@@ -123,7 +131,7 @@ let dialogEditor = new Dialog({
                     "lightAngle": 45,
                     "lightAnimation": torchAnimation,
                     "lightColor": "#ffeb68",
-                    "lightAlpha": 0.4
+                    "lightAlpha": 0.3
                 });
                 dialogEditor.render(true);
             }
@@ -161,8 +169,8 @@ let dialogEditor = new Dialog({
                     "brightLight": 15,
                     "lightAngle": 360,
                     "lightAnimation": {"type": "none"},
-                    "lightColor": "#97b7ee",
-                    "lightAlpha": 0.5
+                    "lightColor": "#065ef8",
+                    "lightAlpha": 0.2
                 });
                 dialogEditor.render(true);
             }
@@ -176,7 +184,7 @@ let dialogEditor = new Dialog({
                     "lightAngle": 360,
                     "lightAnimation": {"type": "none"},
                     "lightColor": "#1351df",
-                    "lightAlpha": 0.5
+                    "lightAlpha": 0.2
                 });
                 dialogEditor.render(true);
             }
