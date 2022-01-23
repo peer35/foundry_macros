@@ -18,6 +18,7 @@ const sunLight = (radius) => {
         "dim": 2 * radius,
         "bright": radius,
         "angle": 360,
+        "luminosity": 1.0,
         "animation": sunAnimation,
         "color": "#fbff80",
         "alpha": 0.15,
@@ -27,6 +28,7 @@ const flameLight = (dim, bright) => {
     return {
         "dim": dim,
         "bright": bright,
+        "luminosity": 0.4,
         "angle": 360,
         "animation": torchAnimation,
         "color": "#ffeb68",
@@ -56,6 +58,7 @@ let dialogEditor = new Dialog({
                 tokenUpdate({
                     "dim": 120,
                     "bright": 60,
+                    "luminosity": 0.6,
                     "angle": 45,
                     "animation": torchAnimation,
                     "color": "#ffeb68",
@@ -71,6 +74,7 @@ let dialogEditor = new Dialog({
                     "dim": 30,
                     "bright": 15,
                     "angle": 360,
+                    "luminosity": 0.3,
                     "animation": {"type": "none"},
                     "color": "#065ef8",
                     "alpha": 0.2
@@ -84,6 +88,7 @@ let dialogEditor = new Dialog({
                 tokenUpdate({
                     "dim": 0,
                     "bright": -15,
+                    "luminosity": -0.9,
                     "angle": 360,
                     "animation": {"type": "none"}
                 });
@@ -96,6 +101,7 @@ let dialogEditor = new Dialog({
                 tokenUpdate({
                     "dim": 120,
                     "bright": 60,
+                    "luminosity": 0.6,
                     "angle": 360,
                     "animation": {"type": "none"},
                     "color": "#dfffff",
@@ -110,6 +116,7 @@ let dialogEditor = new Dialog({
                 tokenUpdate({
                     "dim": 10,
                     "bright": 0,
+                    "luminosity": 0.3,
                     "angle": 360,
                     "animation": ghostlyAnimation,
                     "color": "#ff00ff",
@@ -124,6 +131,7 @@ let dialogEditor = new Dialog({
                 tokenUpdate({
                     "dim": 20,
                     "bright": 10,
+                    "luminosity": 0.3,
                     "angle": 360,
                     "animation": {"type": "none"},
                     "color": "#1351df",
@@ -159,6 +167,7 @@ let dialogEditor = new Dialog({
                 tokenUpdate({
                     "dim": 40,
                     "bright": 20,
+                    "luminosity": 0.6,
                     "angle": 360,
                     "animation": {"type": "none"},
                     "color": "#dfffff",
@@ -208,6 +217,7 @@ let dialogEditor = new Dialog({
                 tokenUpdate({
                     "dim": 40,
                     "bright": 20,
+                    "luminosity": 1.0,
                     "angle": 360,
                     "animation": {"type": "none"},
                     "color": "#22a006",
