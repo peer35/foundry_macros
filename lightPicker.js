@@ -1,9 +1,9 @@
 function tokenUpdate(data) {
-    canvas.tokens.controlled.map(token => token.update(data));
+    canvas.tokens.controlled.map(token => token.document.update({light: data}));
 }
 
 /*
-lightAlpha - color intensity:
+alpha - color intensity:
 0.3 - 0.55
 0.2 - 0.45
 0.1 - 0.3
@@ -15,22 +15,22 @@ const sunAnimation = {"type": "sunburst", "speed": 1, "intensity": 1};
 const ghostlyAnimation = {"type": "ghost", "speed": 1, "intensity": 5}
 const sunLight = (radius) => {
     return {
-        "dimLight": 2 * radius,
-        "brightLight": radius,
-        "lightAngle": 360,
-        "lightAnimation": sunAnimation,
-        "lightColor": "#fbff80",
-        "lightAlpha": 0.15,
+        "dim": 2 * radius,
+        "bright": radius,
+        "angle": 360,
+        "animation": sunAnimation,
+        "color": "#fbff80",
+        "alpha": 0.15,
     }
 }
 const flameLight = (dim, bright) => {
     return {
-        "dimLight": dim,
-        "brightLight": bright,
-        "lightAngle": 360,
-        "lightAnimation": torchAnimation,
-        "lightColor": "#ffeb68",
-        "lightAlpha": 0.15
+        "dim": dim,
+        "bright": bright,
+        "angle": 360,
+        "animation": torchAnimation,
+        "color": "#ffeb68",
+        "alpha": 0.15
     }
 }
 
@@ -46,7 +46,7 @@ let dialogEditor = new Dialog({
         none: {
             label: `None`,
             callback: () => {
-                tokenUpdate({"dimLight": 0, "brightLight": 0, "lightAngle": 360,});
+                tokenUpdate({"dim": 0, "bright": 0, "angle": 360,});
                 dialogEditor.render(true);
             }
         },
@@ -54,12 +54,12 @@ let dialogEditor = new Dialog({
             label: `Bullseye Lantern`,
             callback: () => {
                 tokenUpdate({
-                    "dimLight": 120,
-                    "brightLight": 60,
-                    "lightAngle": 45,
-                    "lightAnimation": torchAnimation,
-                    "lightColor": "#ffeb68",
-                    "lightAlpha": 0.3
+                    "dim": 120,
+                    "bright": 60,
+                    "angle": 45,
+                    "animation": torchAnimation,
+                    "color": "#ffeb68",
+                    "alpha": 0.3
                 });
                 dialogEditor.render(true);
             }
@@ -68,12 +68,12 @@ let dialogEditor = new Dialog({
             label: `Crusading Shortsword`,
             callback: () => {
                 tokenUpdate({
-                    "dimLight": 30,
-                    "brightLight": 15,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"},
-                    "lightColor": "#065ef8",
-                    "lightAlpha": 0.2
+                    "dim": 30,
+                    "bright": 15,
+                    "angle": 360,
+                    "animation": {"type": "none"},
+                    "color": "#065ef8",
+                    "alpha": 0.2
                 });
                 dialogEditor.render(true);
             }
@@ -82,10 +82,10 @@ let dialogEditor = new Dialog({
             label: `Darkness spell`,
             callback: () => {
                 tokenUpdate({
-                    "dimLight": 0,
-                    "brightLight": -15,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"}
+                    "dim": 0,
+                    "bright": -15,
+                    "angle": 360,
+                    "animation": {"type": "none"}
                 });
                 dialogEditor.render(true);
             }
@@ -94,12 +94,12 @@ let dialogEditor = new Dialog({
             label: `Daylight spell`,
             callback: () => {
                 tokenUpdate({
-                    "dimLight": 120,
-                    "brightLight": 60,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"},
-                    "lightColor": "#dfffff",
-                    "lightAlpha": 0.2
+                    "dim": 120,
+                    "bright": 60,
+                    "angle": 360,
+                    "animation": {"type": "none"},
+                    "color": "#dfffff",
+                    "alpha": 0.2
                 });
                 dialogEditor.render(true);
             }
@@ -108,12 +108,12 @@ let dialogEditor = new Dialog({
             label: `Faerie fire`,
             callback: () => {
                 tokenUpdate({
-                    "dimLight": 10,
-                    "brightLight": 0,
-                    "lightAngle": 360,
-                    "lightAnimation": ghostlyAnimation,
-                    "lightColor": "#ff00ff",
-                    "lightAlpha": 0.4
+                    "dim": 10,
+                    "bright": 0,
+                    "angle": 360,
+                    "animation": ghostlyAnimation,
+                    "color": "#ff00ff",
+                    "alpha": 0.4
                 });
                 dialogEditor.render(true);
             }
@@ -122,12 +122,12 @@ let dialogEditor = new Dialog({
             label: `Frostbrand`,
             callback: () => {
                 tokenUpdate({
-                    "dimLight": 20,
-                    "brightLight": 10,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"},
-                    "lightColor": "#1351df",
-                    "lightAlpha": 0.2
+                    "dim": 20,
+                    "bright": 10,
+                    "angle": 360,
+                    "animation": {"type": "none"},
+                    "color": "#1351df",
+                    "alpha": 0.2
                 });
                 dialogEditor.render(true);
             }
@@ -157,12 +157,12 @@ let dialogEditor = new Dialog({
             label: `Light cantrip`,
             callback: () => {
                 tokenUpdate({
-                    "dimLight": 40,
-                    "brightLight": 20,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"},
-                    "lightColor": "#dfffff",
-                    "lightAlpha": 0.2
+                    "dim": 40,
+                    "bright": 20,
+                    "angle": 360,
+                    "animation": {"type": "none"},
+                    "color": "#dfffff",
+                    "alpha": 0.2
                 });
                 dialogEditor.render(true);
             }
@@ -206,12 +206,12 @@ let dialogEditor = new Dialog({
             label: `Thighbone`,
             callback: () => {
                 tokenUpdate({
-                    "dimLight": 40,
-                    "brightLight": 20,
-                    "lightAngle": 360,
-                    "lightAnimation": {"type": "none"},
-                    "lightColor": "#22a006",
-                    "lightAlpha": 0.2
+                    "dim": 40,
+                    "bright": 20,
+                    "angle": 360,
+                    "animation": {"type": "none"},
+                    "color": "#22a006",
+                    "alpha": 0.2
                 });
                 dialogEditor.render(true);
             }
